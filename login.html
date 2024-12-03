@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style class="site">
+        body{
+	            background-image: url("background.png");
+	            background-repeat: no-repeat;
+	            background-attachment: fixed;
+	            background-size: cover;
+	            background-position: center;
+	            z-index: -1;
+                overflow: hidden;
+                align-items: center;
+                font-family: sans-serif;
+            }
+            .login-container {
+                background-color: white;
+                padding: 40px 0px;
+                border-radius: 20px;
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+                width: 50%;
+                display: grid;
+                margin: 5% auto;
+            }
+            .form-group{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-sizing: border-box;
+                gap: 10px;
+            }
+            .logo{
+                width: 25%;
+                height: auto;
+            }
+            .logLabel{
+                font-family: sans-serif;
+                font-weight: bold;
+                font-size: 200%;
+                margin: 2% 0;;
+            }
+            #email, #password{
+                width: 50%;
+                padding: 10px 20px;;
+                border: 1px solid lightgray;
+                border-radius: 10px;
+            }
+            #logIn{
+                width: 56%;
+                padding: 10px 20px;
+                border: 1px solid lightgray;
+                border-radius: 10px;
+                background-color: #002848;
+                color: white;
+                font-weight: bold;
+                font-size: 100%;
+            }
+            #logIn:hover{
+                cursor: pointer;
+                transform: scale(1.05);
+                box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+            }
+            .forPass{
+                color: #002848;
+                font-size: 90%;
+                margin: 2%;
+            }
+            .forPass:hover{
+                text-decoration: underline;
+            }
+            #createAcc:hover{
+                cursor: pointer;
+                transform: scale(1.02);
+                filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.25));
+            }
+    </style>
+    <style class="responsive">
+
+    </style>
+    <title>LOG IN | FOCUS+</title>
+    </head>
+    <body>
+        <div class="login-container">
+        <form>
+            <div class="form-group">
+                <img src="Focus+clear.png" alt="FOCUS+ Logo" class="logo">
+                <label class="logLabel" id="logLabel">WELCOME!</label>
+                <input type="text" id="email" name="email" placeholder="Email or phone number" required>
+                <input type="password" class="password" id="password" placeholder="Password" required>
+                <button class="logIn" id="logIn" type="submit">LOG IN</button>
+                <label class="forPass" id="forPass">Forgot password?</label>
+                <label class="createAcc"id="createAcc" type="button"><u><b>CREATE ACCOUNT</b></u></label>
+        </form>
+    </div>
+
+    </body>
+</html>

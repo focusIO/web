@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Focus+clear.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <head>
+        <style>
+            body{
+	            background-image: url("aa5.jpg");
+	            background-repeat: no-repeat;
+	            background-attachment: fixed;
+	            background-size: cover;
+	            background-position: center;
+	            z-index: -1;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+            body::after{
+	            content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 200%;
+                background-color: rgba(255, 255, 255, 0.6); /* Light overlay with 50% opacity */
+                z-index: -1; /* Overlay above the background */
+                }
+            .feedback{
+                font-weight: bolder;  
+                border-bottom: 3px solid #002848;
+                margin-top: 1px;
+            }
+            .header, .searchBox{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #ffffff;
+                padding: 10px 20px;
+                font-family: Tahoma;
+                font-size: 100%;
+                color: #002848;
+                font-weight: bold;
+            }
+            .logo{
+                width: 5%;
+                height: auto;
+            }
+            .logo:hover{
+                cursor: pointer;
+            }
+            .header a{
+                color: #002848;
+                text-decoration: none;
+                transition: background-color 0.3s;
+            }
+            .header a:hover{
+                font-weight: bold;
+                border-bottom: 2px solid #002848;
+            }
+            #notifButton{
+                padding: 10px;
+            }
+            #search{
+                padding: 5px;
+                border: none;
+                border-radius: 4px;
+                border-color: #002848;
+            }
+            #searchButton, #notifButton, #chat{
+                width: 30px; /* Adjust icon size */
+                height: auto;
+                cursor: pointer;
+            }
+            #accountButton{
+                background-color: #002848;
+                color: white;
+                border-radius: 55px;
+                margin-left: 20px;
+                font-size: 1.2em;
+                padding: 10px 15px;
+            }
+            #account{
+                cursor: pointer;
+            }
+
+            /*Solely for Feedback Page*/
+            .label{
+                font-family: AriaL;
+                padding: 10px;
+                background-color: rgba(255, 255, 255, 0.7);
+                border-radius: 20px;
+                display: grid;
+                margin: 1% auto;
+                width: 60%;
+                justify-content: center;    
+            }
+            .intent{
+                color: #002848;
+                font-size: 100%;
+                text-align: center;
+                padding: 10px;
+            }
+            textarea{
+                width: 50%;
+                padding: 10px;
+                margin: 0 15px;
+                border: 1px solid #002848;
+                border-radius: 4px;
+            }
+            .rate_con, .rate_all{
+                display: flex;
+                justify-content: center;
+            }
+            .star {
+                font-size: 30px;
+                color: #4fade3; /* Default star color */
+                cursor: pointer;
+                transition: color 0.3s;
+            }
+            .star.filled {
+                color: #002848; /* Filled star color */
+            }
+        </style>
+        <title>FEEDBACK | FOCUS+</title>
+    </head>
+    <body>
+        <div class="header">    
+            <img src="Focus+clear.png" class="logo" name="logo" onclick="proceedToHomePage()">
+            <a href="home.html" class="home">HOME</a>
+            <a href="about.html" class="about">ABOUT</a>
+            <a href="offers.html" class="offers">TRAINING OFFERS</a>
+            <a href="faqs.html" class="faqs">FAQs</a>
+            <a href="feedback.html" class="feedback">FEEDBACK</a>
+            <a href="contact.html" class="contact">CONTACT</a>
+            <div class="searchBox">
+            <input type="text" id="search" name="search" placeholder="Search...">
+            <img src="https://img.icons8.com/?size=100&id=XU3XKgdpT0qG&format=png&color=000000" id="searchButton" name="searchButton" onclick="proceedToSearch()">
+            </div>
+            <img src="https://img.icons8.com/?size=100&id=eMfeVHKyTnkc&format=png&color=000000" id="notifButton" name="notifButton" onclick="proceedToNotification()">
+            <img src="https://img.icons8.com/?size=100&id=gFDEU6xka9fu&format=png&color=000000" id="chat" name="chat" onclick="proceedToChat()">
+            <button id="accountButton" name="accountButton" onclick="proceedToAccount()">M</button>
+            <h6 id="account" onclick="proceedToAccount()">v</h6>
+        </div>
+        <div class="label">
+            <h1 class="intent">For us to know your experience, please fill in the form below.</h1>
+        </div>
+        <div class="feedBack">
+            <form action="" class="submitFeedback" id="submitFeedback">
+                <img src="Focus+clear.png" alt="Focus+ Logo" class="logo" id="logo" name="logo">
+                <h1 class="formLabel">Feedback Form</h1>
+                <div class="labels-1">
+                    <h4 id="name">Name</h4>
+                    <h4 id="date">Date</h4>
+                </div>                
+                <input type="text" class="f_name" id="name" name="name" required>
+                <input type="text" class="l_name" id="l_name" name="l_name" required>
+                <input type="text" class="created_on" id="created_on" name="created_on" required class="flatpickr">
+                <div class="labels-2">
+                    <h4 id="rateLable">Please rate FOCUS+ content.</h4>
+                </div>
+                <div class="rate_con" id="rate_con">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                    <span id="rating-value"></span>
+                </div>    
+                <div class="labels-3">
+                    <h4 class="enjoyLabel"> What did you enjoy the most about FOCUS+?</h4>
+                </div>
+                <textarea id="enjoy" name="enjoy" rows="3" required></textarea>
+                <div class="labels-4">
+                    <h4 class="satLabel">Are you satisfied with our service?</h4>
+                </div>
+                <textarea name="satisfaction" id="satisfaction" rows="3" required></textarea>
+                <div class="labels-5">
+                    <h4 class="clarLabel">Were the instructions and guides clear and helpful?</h4>
+                </div>
+                <textarea name="clarity" id="clarity" rows="3" required></textarea>
+                <div class="labels-5">
+                    <h4 class="allRateLabel">Please rate the overall service.</h4>
+                </div>
+                    <div class="rate_all" id="rate_all">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                <div class="labels-6">
+                    <h4 class="addLabel">Any additional comments about FOCUS+?</h4>
+                </div>
+                <textarea name="add_com" id="add_com"></textarea>
+                <h3>THANK YOU!</h3>
+                <button class="submitForm" type="submit">SUBMIT</button>
+            </form>
+        </div>
+        <script>
+            function proceedToHomePage(){window.location.href= 'home.html'}
+            function proceedToSearch() {window.location.href = 'searchResult.html';}
+            function proceedToNotification() {window.location.href = 'notif.html';}
+            function proceedToChat() {window.location.href = 'chat.html';}
+            function proceedToAccount() {window.location.href = 'account.html';}
+            function proceedToEnrollment() {window.location.href = 'enroll.html';}
+
+            src="https://cdn.jsdelivr.net/npm/flatpickr"
+            // Initialize Flatpickr on the date input
+            flatpickr("#date", {
+            dateFormat: "Y-m-d", // Format the date
+            minDate: "today", // Disable past dates
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('.star');
+            const ratingValue = document.getElementById('rating-value');
+
+            stars.forEach(star => {
+            star.addEventListener('click', function() {
+            const rating = this.getAttribute('data-value');
+
+            // Clear previous ratings
+            stars.forEach(s => s.classList.remove('.star.filled'));
+
+            // Fill the stars up to the selected rating
+            for (let i = 0; i < rating; i++) {
+                stars[i].classList.add('.star.filled');
+            }
+
+            // Update the displayed rating value
+            ratingValue.textContent = rating_con;
+        });
+        });
+            // Optional: Handle form submission
+            const feedbackForm = document.getElementById('submitFeedback');
+            feedbackForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent form submission for demo purposes
+            alert(`Thank you for your feedback!
+            \nName: ${submitFeedback.f_name.value} ${submitFeedback.l_name.value}
+            \nDate: ${submitFeedback.created_on.value}
+            \nContent Rating: ${submitFeedback.rate_con.value}
+            \nEnjoyment: ${submitFeedback.enjoy.value}
+            \nSatisfaction: ${submitFeedback.satisfaction.value}
+            \nClarity: ${submitFeedback.clarity.value}
+            \nAdditional Comments: ${feedbackForm.add_com.value}`);
+        });
+    });
+        </script>
+    </body>
+</html>

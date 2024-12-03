@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Focus+clear.png" type="image/x-icon">
+    <head>
+        <style>
+            body{
+	            background-image: url("corporate.jpg");
+	            background-repeat: no-repeat;
+	            background-attachment: fixed;
+	            background-size: cover;
+	            background-position: center;
+	            z-index: -1;
+            }
+            body::after{
+	            content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 310%;
+                background-color: rgba(255, 255, 255, 0.6); /* Light overlay with 50% opacity */
+                z-index: -1; /* Overlay above the background */
+            }
+            .offers{
+                font-weight: bolder;  
+                border-bottom: 3px solid #002848;
+                margin-top: 1px;
+            }
+            .header, .searchBox{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #ffffff;
+                padding: 10px 20px;
+                font-family: Tahoma;
+                font-size: 100%;
+                color: #002848;
+                font-weight: bold;
+            }
+            .logo{
+                width: 5%;
+                height: auto;
+            }
+            .logo:hover{
+                cursor: pointer;
+            }
+            .header a{
+                color: #002848;
+                text-decoration: none;
+                transition: background-color 0.3s;
+            }
+            .header a:hover{
+                font-weight: bold;
+                border-bottom: 2px solid #002848;
+            }
+            #notifButton{
+                padding: 10px;
+            }
+            #search{
+                padding: 5px;
+                border: none;
+                border-radius: 4px;
+                border-color: #002848;
+            }
+            #searchButton, #notifButton, #chat{
+                width: 30px; /* Adjust icon size */
+                height: auto;
+                cursor: pointer;
+            }
+            #accountButton{
+                background-color: #002848;
+                color: white;
+                border-radius: 55px;
+                margin-left: 20px;
+                font-size: 1.2em;
+                padding: 10px 15px;
+            }
+            #account{
+                cursor: pointer;
+            }
+            #signIn{
+                justify-content: center;
+                width: 12%;
+                padding: 10px 2px;
+	            border-radius: 10px;
+                border: white 2px solid;
+                font-family: "Arial";
+                font-size: 100%;
+                font-weight: bolder;
+                color: white;
+                background-color: #002848;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Drop shadow */
+                transition: box-shadow 0.3s, transform 0.3s; /* Smooth transition for shadow and scaling */
+            }
+            #signIn:hover{
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5); /* Darker and larger shadow on hover */
+                transform: translateY(-2px); /* Slightly lift the button on hover */
+                text-decoration: underline;
+            }
+
+            /*Solely for Offers Page*/
+            .label{
+                font-family: AriaL;
+                padding: 10px;
+                background-color: #ffffff;
+                border-radius: 20px;
+                margin: 1% 15%;
+                display: flex;
+                flex: 1;
+                padding: 10px 40px;
+            }
+            .title{
+                color: #002848;
+                font-size: 200%;
+                text-align: left;
+                padding: 15px 40px;
+                border: 2px solid transparent;
+                border-image: linear-gradient(330deg, #ffffff, #002848) 1;
+            }
+            .categories{
+                background-color: #ffffff;
+                border: #002848 transparent  2px;
+                border-radius: 20px;
+                margin: 1% 15%;
+                flex: 1 1 150px; /* Grow, shrink, and set a base width */
+                transition: background-color 0.3s ease;
+            }
+            .orgs{
+                padding: 1% 2%;
+                flex: 1 1 150px; /* Grow, shrink, and set a base width */
+                transition: background-color 0.3s ease;
+            }
+            .searchBoxOffers{
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                background-color: #ffffff;
+            }
+            #searchOffers{
+                width: 30%;
+                border: #002848 solid 1px;
+                border-radius: 5px;
+                padding: 5px;
+            }
+            #searchButtonOffers{
+                margin-left: -13%;
+                width: 30px; /* Adjust icon size */
+                height: auto;
+                cursor: pointer;
+            }
+            .buttons{
+                display: flex;
+                align-items: center;
+                flex-direction: column; /* Align buttons vertically */
+                gap: 5px; /* Space between buttons */
+                box-sizing: border-box;
+                padding-bottom: 20px;
+            }
+            .tesdaContent, .howContent, .tuitionContent, .certContent, .whoContent{
+                display: block; /* Hidden by default */
+                padding: 5px 30px;
+                border: 1px transparent #002848;
+                background-color: white;
+                border-radius: 5px;
+                text-align: justify;
+                width: 400px;
+            }
+            .whoContent{margin-bottom: 1%;}
+            .tesdaButton, .depedButton, .pesoButton, .bfarButton, .dswdButton{
+                width: 100%;
+                cursor: pointer;
+                padding: 10px 20px;
+                background-color:#002848;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                text-align: left;
+                margin: 0.2% 2%;
+                font-size: 110%;
+                flex: 1 1 150px; /* Grow, shrink, and set a base width */
+                transition: background-color 0.3s ease;
+            }
+            [class*="image-"]{
+                width: 200px;
+                height: auto;
+            }
+            [class*="card-"]{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 3%;
+            }
+            .container-footer{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+                margin-top: 13%;
+                background-color: white;
+                padding: 15px 70px 0px 70px;
+            }
+            .contactLoc{
+                text-align: center;
+            }
+            #logoTeam{
+                width: 150px;
+                height: auto;
+            }
+            #fb, #ig, #call, #mail{
+                width: 40px;
+                height: auto;
+                margin-top: 3%;
+            }
+            #fb:hover, #ig:hover, #call:hover, #mail:hover{
+                transform: scale(1.03);
+                box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+            }
+            #fbLink, #emailLink, #phNum{
+                margin-bottom: 50px;
+            }
+            .copyright{
+                text-align: center;
+                font-size: 15px;
+                color: #002848;
+                background-color: white;
+                display: grid;
+                margin: 0 auto;
+                padding: 10px;
+            }
+        </style>
+        <title>TRAINING OFFERS | FOCUS+</title>
+    </head>
+    <body>
+        <div class="header">    
+            <img src="Focus+clear.png" class="logo" name="logo" onclick="proceedToHomePage()">
+            <a href="home.html" class="home">HOME</a>
+            <a href="about.html" class="about">ABOUT</a>
+            <a href="offers.html" class="offers">TRAINING OFFERS</a>
+            <a href="faqs.html" class="faqs">FAQs</a>
+            <!--<a href="feedback.html" class="feedback">FEEDBACK</a>-->
+            <a href="contact.html" class="contact">CONTACT</a>
+            <a href="devProf.html" class="devOps">DEVELOPERS</a>
+            <button class="signIn" id="signIn" onclick="proceedToLogIn()">SIGN IN</button>
+           <!--<div class="searchBox">
+            <input type="text" id="search" name="search" placeholder="Search...">
+            <img src="https://img.icons8.com/?size=100&id=XU3XKgdpT0qG&format=png&color=000000" id="searchButton" name="searchButton" onclick="proceedToSearch()">
+            </div>
+            <img src="https://img.icons8.com/?size=100&id=eMfeVHKyTnkc&format=png&color=000000" id="notifButton" name="notifButton" onclick="proceedToNotification()">
+            <img src="https://img.icons8.com/?size=100&id=gFDEU6xka9fu&format=png&color=000000" id="chat" name="chat" onclick="proceedToChat()">
+            <button id="accountButton" name="accountButton" onclick="proceedToAccount()">M</button>
+            <h6 id="account" onclick="proceedToAccount()">v</h6>-->
+        </div>
+        <div class="label">
+            <h1 class="title">Training Offers</h1>
+        </div>
+        <div class="categories">
+            <div class="orgs">
+            <div class="searchBoxOffers">
+                <h3 class="labelOffers">Free Training Institutes:</h3>
+                <input type="text" id="searchOffers" name="searchOffers" placeholder="Search...">
+                <img src="https://img.icons8.com/?size=100&id=XU3XKgdpT0qG&format=png&color=000000" id="searchButtonOffers" name="searchButtonOffers" onclick="proceedToSearch()">
+                </div>
+            </div>
+            <div class="buttons">
+            <div class="tesda">
+            <button class="tesdaButton">Technical Education and Skills Development Authority (TESDA)</button>
+            <div class="tesdaContent">
+                    <div class="cards">
+                        <div class="card">
+                            <!--<div class="card-1" id="card-1">
+                                <img src="nc1.png" alt="Driving" class="image-1" id="image-1">
+                            </div>--->
+                            <div class="card-2">
+                                <img src="nc2.png" alt="Welding" class="image-2" id="image-2">
+                                <h5 class="welding">Shielded Metal Arc Welding NCII</h5>
+                                </div>
+                             <div class="card-3">   
+                                <img src="nc3.png" alt="Painting" class="image-3" id="image-3">
+                                <h5 class="painting">Consturction Painting NCII</h5>
+                            </div>
+                            <div class="card-4">   
+                                <img src="nc4.png" alt="Plumbing" class="image-4" id="image-4">
+                                <h5 class="plumbing">Plumbing NCII</h5>
+                            </div>
+                            <div class="card-5">    
+                                <img src="nc5.png" alt="Dressmaking" class="image-5" id="image-5">
+                                <h5 class="dressmaking">Dressmaking NCII</h5>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="deped">
+                <button class="depedButton">Department of Education (DepEd)</button>
+            </div>
+            <div class="peso">
+                <button class="depedButton">Public Employment Service Office (PESO)</button>
+            </div>
+            <div class="bfar">
+                <button class="bfarButton">Bureau of Fisheries and Aquatic Resources (BFAR)</button>
+            </div>
+            <div class="dswd">
+                <button class="dswdButton">Department of Social Welfare and Development (DSWD)</button>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="footer">
+            <div class="container-footer">
+                    <div class="logoPlace">
+                    <img src="FM-clear.png" alt="Team Logo" id="logoTeam">
+                    </div>
+                    <div class="contactLoc">
+                    <h6 class="address">FOCUS+ by MountIO<br>New Visayas, Panabo City, <br>
+                    Davao del Norte, Philippines 8105</h6>
+                    </div>
+                    <div class="icons">
+                        <img src="https://img.icons8.com/?size=100&id=8818&format=png&color=000000" alt="fb logo" id="fb" title="FOCUS+arget">
+                        <!--<img src="https://img.icons8.com/?size=100&id=32309&format=png&color=000000" alt="ig logo" id="ig" title="FOCUS+arget">--->
+                        <img src="https://img.icons8.com/?size=100&id=jShwZ2RCyPSO&format=png&color=000000" alt="call" id="call" title="0966-352-5363">
+                        <img src="https://img.icons8.com/?size=100&id=YRRhCXfA0Vd0&format=png&color=000000" alt="mail" id="mail" title="mount.io.focus@gmail.com">
+
+                        <!--<img src="https://img.icons8.com/?size=100&id=8818&format=png&color=000000" alt="fb logo" id="fb" title="FOCUS+arget">
+                        <label id="fbLink" class="fbLink"></label>
+                        <img src="https://img.icons8.com/?size=100&id=32309&format=png&color=000000" alt="ig logo" id="ig" title="FOCUS+arget">
+                        <label id="igLink" for="" class="igLink"></label>
+                        <img src="https://img.icons8.com/?size=100&id=jShwZ2RCyPSO&format=png&color=000000" alt="call" id="call" title="0966-352-5363">
+                        <label id="phNum" class="phNum"></label>
+                        <img src="https://img.icons8.com/?size=100&id=YRRhCXfA0Vd0&format=png&color=000000" alt="mail" id="mail" title="mount.io.focus@gmail.com">
+                        <label id="emailLink" class="emailLink">mount.io.focus@gmail.com</label>--->
+                    </div>
+                </div>
+                <label for="copyright" class="copyright" id="copyright">MountIO &copy; 2024. All rights reserved.</label>               
+        </div>
+        <script>
+            function proceedToHomePage(){window.location.href= 'home.html'}
+            function proceedToSearch() {window.location.href = 'searchResult.html';}
+            function proceedToNotification() {window.location.href = 'notif.html';}
+            function proceedToChat() {window.location.href = 'chat.html';}
+            function proceedToAccount() {window.location.href = 'account.html';}
+            function proceedToLogIn() {window.location.href = 'login.html';}
+
+            document.querySelector('.tesdaButton').addEventListener('click', function(){
+                var content = document.querySelector('.tesdaContent');
+                if (content.style.display == "none" || content.style.display == ""){
+                    content.style.display = "block"; //Show content
+                } else{content.style.display = "none";} //Hide content
+            });
+        </script>
+    </body>
+</html>

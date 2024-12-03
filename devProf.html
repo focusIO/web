@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="Focus+clear.png" type="image/x-icon">
+	<style class="style">
+			body{
+	        	background-image: url("corporate.jpg");
+	        	background-repeat: no-repeat;
+	        	background-attachment: fixed;
+	        	background-size: cover;
+	        	background-position: center;
+	        	z-index: -1;
+        	}
+			body::after{
+	            content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 550%;
+                background-color: rgba(255, 255, 255, 0.6); /* Light overlay with 50% opacity */
+                z-index: -1; /* Overlay above the background */
+            }
+			.devOps{
+                font-weight: bolder;  
+                border-bottom: 3px solid #002848;
+                margin-top: 1px;
+            }
+            .header, .searchBox{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #ffffff;
+                padding: 10px 20px;
+                font-family: Tahoma;
+                font-size: 100%;
+                color: #002848;
+                font-weight: bold;
+            }
+            .logo{
+                width: 5%;
+                height: auto;
+            }
+            .logo:hover{
+                cursor: pointer;
+            }
+            .header a{
+                color: #002848;
+                text-decoration: none;
+                transition: background-color 0.3s;
+            }
+            .header a:hover{
+                font-weight: bold;
+                border-bottom: 2px solid #002848;
+            }	
+			#signIn{
+                justify-content: center;
+                width: 12%;
+                padding: 10px 2px;
+	            border-radius: 10px;
+                border: white 2px solid;
+                font-family: "Arial";
+                font-size: 100%;
+                font-weight: bolder;
+                color: white;
+                background-color: #002848;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Drop shadow */
+                transition: box-shadow 0.3s, transform 0.3s; /* Smooth transition for shadow and scaling */
+            }
+            #signIn:hover{
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5); /* Darker and larger shadow on hover */
+                transform: translateY(-2px); /* Slightly lift the button on hover */
+                text-decoration: underline;
+            }
+			/*footer*/
+			.container-footer{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+                margin-top: 13%;
+                background-color: white;
+                padding: 15px 70px 0px 70px;
+            }
+            .contactLoc{
+                text-align: center;
+            }
+            #logoTeam{
+                width: 150px;
+                height: auto;
+            }
+            #fb, #ig, #call, #mail{
+                width: 40px;
+                height: auto;
+                margin-top: 3%;
+            }
+            #fb:hover, #ig:hover, #call:hover, #mail:hover{
+                transform: scale(1.03);
+                box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+            }
+            #fbLink, #emailLink, #phNum{
+                margin-bottom: 50px;
+            }
+            .copyright{
+                text-align: center;
+                font-size: 15px;
+                color: #002848;
+                background-color: white;
+                display: grid;
+                margin: 0 auto;
+                padding: 10px;
+            }
+
+			/*Solely fro DevProf*/
+			.fold{
+				margin: 2%;
+				padding: 40px;
+				font-family: sans-serif;
+			}
+			[class*="fold-"]{
+				margin: 1% 6%;
+				background-color: #ffffff;				
+				border: 2px solid #002848;
+				border-radius: 20px;
+				padding: 20px 20px;
+				text-align: justify;
+			}
+			[class*="fold-"] p{
+				padding-left: 7%;
+				padding-right: 7%;
+			}
+			.logoMIO{
+				width: 25%;
+				height: auto;
+				filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.25));
+			}
+			.mqa, .pao, .gmm, .mjc{
+				width: 20%;
+				height: auto;
+				border: 3px solid #002848;
+				border-radius: 250px;
+				box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+			}
+			#logoMIO, #mqa, #pao, #gmm, #mjc{
+				display: grid;
+				margin: 0 auto;
+			}
+			.deets, [class*=skills-]{				
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			.ceo, .coo, .cto, .cfo{
+				font-size: 130%;
+				font-weight: bold;
+			}
+			.tagline{
+				text-align: center;
+				margin-top: -1%;
+			}
+			.email{
+				font-size: 100%;
+				text-decoration: underline;
+				color: #4fade3;
+			}
+			.kss{
+				display: flex;
+				justify-content: space-around;
+				padding: 0 30%;
+				margin-top: -1%;
+			}
+	</style>
+	<style class="responsive">
+		.col-1{width: 8.33%;}
+            .col-2{width: 16.66%;}
+            .col-3{width: 25%;}
+            .col-4{width: 33.33%;}
+            .col-5{width: 41.66%;}
+            .col-6{width: 50%;}
+            .col-7{width: 58.33%;}
+            .col-8{width: 66.66%;}
+            .col-9{width: 75%;}
+            .col-10{width: 83.33%}
+            .col-11{width: 91.66%;}
+            .col-12{width: 100%;}
+            [class*="col-"]{
+                float: left;
+                padding: 15px;
+            }
+
+            /*Extra small devices (phones, 600px and down)*/
+            @media only screen and (max-width:600px){
+
+            }
+            /*Small devices (portrait tablets, large phones, 600px and up*/
+            @media only screen and (min-width:600px){
+
+            }
+            /*Medium devices (landscape tablets, 768px and up*/
+            @media only screen and (min-width:768px){
+               
+            }
+            /*Large devices (laptops/desktop, 992px and up*/
+            @media only screen and (min-width:992px){
+                
+            }
+            /*Extra large devices (large laptops and desktops, 1200px and up*/
+            @media only screen and (min-width:1200px){
+                
+            }
+	</style>
+	<title>DEVELOPERS PROFILE | FOCUS+</title>
+</head>
+<body>
+	<div class="header">    
+		<img src="Focus+clear.png" class="logo" name="logo" onclick="proceedToHomePage()">
+		<a href="home.html" class="home">HOME</a>
+		<a href="about.html" class="about">ABOUT</a>
+		<a href="offers.html" class="offers">TRAINING OFFERS</a>
+		<a href="faqs.html" class="faqs">FAQs</a>
+		<!--<a href="feedback.html" class="feedback">FEEDBACK</a>-->
+		<a href="contact.html" class="contact">CONTACT</a>
+		<a href="devProf.html" class="devOps">DEVELOPERS</a>
+		<button class="signIn" id="signIn" onclick="proceedToLogIn()">SIGN IN</button>
+		<!--<div class="searchBox">
+		<input type="text" id="search" name="search" placeholder="Search...">
+		<img src="https://img.icons8.com/?size=100&id=XU3XKgdpT0qG&format=png&color=000000" id="searchButton" name="searchButton" onclick="proceedToSearch()">
+		</div>
+		<img src="https://img.icons8.com/?size=100&id=eMfeVHKyTnkc&format=png&color=000000" id="notifButton" name="notifButton" onclick="proceedToNotification()">
+		<img src="https://img.icons8.com/?size=100&id=gFDEU6xka9fu&format=png&color=000000" id="chat" name="chat" onclick="proceedToChat()">
+		<button id="accountButton" name="accountButton" onclick="proceedToAccount()">M</button>
+		<h6 id="account" onclick="proceedToAccount()">v</h6>-->
+	</div>
+	<div class="fold">
+		<div class="fold-1">
+		<div class="container-mountIO">
+			<img src="MountIO-Clear.png" alt="MountIO Logo" class="logoMIO" id="logoMIO">
+			<h3 class="tagline">Surmount from Simple.<br>
+				Drive to Innovation, Thrive in Existence.</h3>
+			<p class="aboutMIO"></p>
+			<h3 class="vision">Vision</h3>
+			<h3 class="mission">Mission</h3>
+			<h3 class="goal">Goals</h3>
+		</div>
+	</div> <!--Fold-1-->
+
+	<div class="fold-2">
+	<div class="container-mqa">
+		<img src="amigo_marieneth.jpg" alt="amigo_marieneth" class="mqa" id="mqa">
+	<div class="details">
+		<div class="deets">
+			<h1> MARIENETH Q. AMIGO</h1>
+			<label for="ceo" class="ceo">Chief Executive Officer</label><br>
+			<label for="email" class="email">amigo.marieneth@dnsc.edu.ph</label>
+		</div>
+	<p class="about-mqa">I am Marieneth Amigo. I am a visionary and a dreamer. 
+		I make sure that I spend my resources very well.
+		I am well aware that some are renewable and some are not,
+		though some can be restored but I choose not waste for I know
+		that there still a price to be paid for restoration. 
+		What I value most is time. I do not own it, I am just entrusted 
+		to steward it well. I believe that a person is trustworthy when they
+		know how handle time. I am doing best to be worthy of trust, that is
+		why I start it with what is in my hand, which is time.</p>
+	</div>
+	<h3 class="skills-mqa">Key Strengths and Skills</h3>
+	<div class="kss">
+	<ul class="strengths-mqa">
+		<li>Teaching</li> 
+		<li>Leadership</li>
+		<li>Communication</li>
+		<li>Understanding</li>
+		<li>Empath</li>
+	</ul>
+	<ul class="skills">
+		<li>Graphic Design</li>
+		<li>Programming</li>
+		<li>Computer Systems Servicing</li>
+	</ul>
+	</div>
+	</div>
+	</div> <!---Fold-2-->
+
+	<div class="fold-3">
+	<div class="container-pao">
+		<img src="otaza.princess.jpg" alt="otaza_princess" class="pao" id="pao">
+	<div class="details">
+	<div class="deets">
+		<h2>PRINCESS ALESSANDRA A.OTAZA</h2>
+		<label for="coo" class="coo">Chief Operating Officer</label><br>
+		<label for="email" class="email">otaza.princessalessandra@dns.edu.ph</label>
+		</div>
+		<p class="about-pao">I have a great interest in photography, video editing,
+			and designs. My strong communication and creativity skills allow me to
+			effectively collaborate with others, translate complex technical concepts
+			into understandable terms, and develop innovative solutions. I'm eager to
+			learn and grow in the field, and I'm always looking for new challenges to
+			push my limits.</p>
+		</div>		
+		<h3 class="skills-pao">Key Strengths and Skills</h3>
+		<div class="kss">
+			<ul class="stregths-pao">
+				<li>Communication</li>
+				<li>Integrator</li>
+				<li>Adaptable</li>
+				<li>Strategic Vissionary</li>
+				<li>Growth Focused</li>
+			</ul>
+			<ul class="skills">
+				<li>Computer Literate</li>
+				<li>Web Designer</li>
+				<li>Web Developer</li>
+			</ul>
+			</div>
+		</div>
+	</div> <!--Fold-3-->
+
+	<div class="fold-4">
+	<div class="coantainer-gmm">
+	<img src="mayola_giamae.png" alt="mayola_giamae" class="gmm" id="gmm">
+	<div class="details">
+		<div class="deets">
+			<h2>GIA MAE C. MAYOLA</h2>
+			<label for="cto" class="cto">Chief Technology Officer</label><br>
+			<label for="email" class="email">mayola.giamae@dnsc.edu.ph</label>
+		</div>
+		<p class="about-gmm"> </p>
+		</div>
+		<h3 class="skills-gmm">Key Strengths and Skills</h3>
+		<div class="kss">
+			<ul class="stregths-gmm">
+				<li>Strategic Thinker</li>
+				<li>Problem Solver</li>
+				<li>Creative</li>
+				<li>Learner</li>
+				<li>Learner</li>
+			
+			</ul>
+			<ul class="skills">
+				<li>Computer Literate</li>
+				<li>Sytem Designer</li>
+				<li>Graphic Design</li>
+			</ul>
+		</div>
+		</div>
+	</div> <!--Fold-4-->
+	
+	<div class="fold-5">
+	<div class="conatiner-mjc">
+	<img src="caliao_mickyjean.jpg" alt="caliao_mickyjean" class="mjc" id="mjc">
+	<div class="details">
+		<div class="deets">
+			<h2>MICKY JEAN CALIAO</h2>
+			<label for="cfo" class="cfo">Chief Financial Officer</label><br>
+			<label for="email" class="email">mayola.giamae@dnsc.edu.ph</label>
+		</div>
+		<p class="about-mjc">I am Micky Jean Caliao. My work explores themes of nature,
+			I love sharing my thoughts and stories through words,and I am always in pursuit
+			of learning something new.
+			I am passionate in grahic design and web design, and I believe in the power of
+			connection. I am definitely looking for new ways to connect with people and learn,
+			to journey new adventures and experiences.</p>
+		</div>
+		<h4 class="skills-mjc">Key Strengths and Skills</h4>
+		<div class="kss">
+			<ul class="stregths-mjc">
+				<li>Reliable</li>
+				<li>Strategic Planner</li>
+				<li>Problem Solver</li>
+				<li>Wise Decision-Making</li>
+				<li>Learner</li>
+			</ul>
+			<ul class="skills">
+				<li>Computer Literate</li>
+				<li>Web Design</li>
+				<li>Graphic Design</li>
+			</ul>
+		</div>
+		</div>
+		</div> <!--Fold-5-->
+	</div>
+		<div class="footer">
+			<div class="container-footer">
+					<div class="logoPlace">
+					<img src="FM-clear.png" alt="Team Logo" id="logoTeam">
+					</div>
+					<div class="contactLoc">
+					<h6 class="address">FOCUS+ by MountIO<br>New Visayas, Panabo City, <br>
+					Davao del Norte, Philippines 8105</h6>
+					</div>
+					<div class="icons">
+						<img src="https://img.icons8.com/?size=100&id=8818&format=png&color=000000" alt="fb logo" id="fb" title="FOCUS+arget">
+						<!--<img src="https://img.icons8.com/?size=100&id=32309&format=png&color=000000" alt="ig logo" id="ig" title="FOCUS+arget">--->
+						<img src="https://img.icons8.com/?size=100&id=jShwZ2RCyPSO&format=png&color=000000" alt="call" id="call" title="0966-352-5363">
+						<img src="https://img.icons8.com/?size=100&id=YRRhCXfA0Vd0&format=png&color=000000" alt="mail" id="mail" title="mount.io.focus@gmail.com">
+
+						<!--<img src="https://img.icons8.com/?size=100&id=8818&format=png&color=000000" alt="fb logo" id="fb" title="FOCUS+arget">
+						<label id="fbLink" class="fbLink"></label>
+						<img src="https://img.icons8.com/?size=100&id=32309&format=png&color=000000" alt="ig logo" id="ig" title="FOCUS+arget">
+						<label id="igLink" for="" class="igLink"></label>
+						<img src="https://img.icons8.com/?size=100&id=jShwZ2RCyPSO&format=png&color=000000" alt="call" id="call" title="0966-352-5363">
+						<label id="phNum" class="phNum"></label>
+						<img src="https://img.icons8.com/?size=100&id=YRRhCXfA0Vd0&format=png&color=000000" alt="mail" id="mail" title="mount.io.focus@gmail.com">
+						<label id="emailLink" class="emailLink">mount.io.focus@gmail.com</label>--->
+					</div>
+				</div>
+				<label for="copyright" class="copyright" id="copyright">MountIO &copy; 2024. All rights reserved.</label>               
+		</div>
+		<script>
+            function proceedToHomePage(){window.location.href= 'home.html'}
+            function proceedToSearch() {window.location.href = 'offers.html';}
+            function proceedToNotification() {window.location.href = 'notif.html';}
+            function proceedToChat() {window.location.href = 'chat.html';}
+            function proceedToAccount() {window.location.href = 'account.html';}
+            function proceedToLogIn() {window.location.href = 'login.html';}
+		</script>
+</body>
+</html>

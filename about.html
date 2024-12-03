@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Focus+clear.png" type="image/x-icon">
+    <head>
+        <style>
+            body{
+	            background-image: url("corporate.jpg");
+	            background-repeat: no-repeat;
+	            background-attachment: fixed;
+	            background-size: cover;
+	            background-position: center;
+	            z-index: -1;
+            }
+            body::after{
+	            content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 150%;
+                background-color: rgba(255, 255, 255, 0.6); /* Light overlay with 50% opacity */
+                z-index: -1; /* Overlay above the background */
+            }
+            .about{
+                font-weight: bolder;  
+                border-bottom: 3px solid #002848;
+                margin-top: 1px;
+            }
+            .header, .searchBox{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #ffffff;
+                padding: 10px 20px;
+                font-family: Tahoma;
+                font-size: 100%;
+                color: #002848;
+                font-weight: bold;
+            }
+            .logo{
+                width: 5%;
+                height: auto;
+            }
+            .logo:hover{
+                cursor: pointer;
+            }
+            .header a{
+                color: #002848;
+                text-decoration: none;
+                transition: background-color 0.3s;
+            }
+            .header a:hover{
+                font-weight: bold;
+                border-bottom: 2px solid #002848;
+            }
+            #notifButton{
+                padding: 10px;
+            }
+            #search{
+                padding: 5px;
+                border: none;
+                border-radius: 4px;
+                border-color: #002848;
+            }
+            #searchButton, #notifButton, #chat{
+                width: 30px; /* Adjust icon size */
+                height: auto;
+                cursor: pointer;
+            }
+            #accountButton{
+                background-color: #002848;
+                color: white;
+                border-radius: 55px;
+                margin-left: 20px;
+                font-size: 1.2em;
+                padding: 10px 15px;
+                cursor: pointer;
+            }
+            #account{
+                cursor: pointer;
+            }
+            #signIn{
+                justify-content: center;
+                width: 12%;
+                padding: 10px 2px;
+	            border-radius: 10px;
+                border: white 2px solid;
+                font-family: "Arial";
+                font-size: 100%;
+                font-weight: bolder;
+                color: white;
+                background-color: #002848;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Drop shadow */
+                transition: box-shadow 0.3s, transform 0.3s; /* Smooth transition for shadow and scaling */
+            }
+            #signIn:hover{
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5); /* Darker and larger shadow on hover */
+                transform: translateY(-2px); /* Slightly lift the button on hover */
+                text-decoration: underline;
+            }
+            /*Solely for About Page*/
+            .label{
+                font-family: AriaL;
+                padding: 10px;
+                background-color: #ffffff;
+                border-radius: 20px;
+                margin: 1% 15%;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+            .title{
+                color: #002848;
+                font-size: 200%;
+                text-align: center;
+                padding: 15px 40px;
+                border: 2px solid transparent;
+                border-image: linear-gradient(330deg, #ffffff, #002848) 1;
+            }
+            #photo{
+                width: 13%;
+                height: 5%;
+                border: 2px solid white;
+                border-radius: 250px;
+                box-shadow: 5px 4px 8px rgba(0, 40, 72, 0.3);
+                margin-left: 2%;
+            }
+            .content{
+                height: fit-content;
+                font-family: AriaL;
+                padding: 10px;
+                background-color: rgba(255, 255, 255, 0.7);
+                color: #002848;
+                border-radius: 20px;
+                margin: 1% 15%;
+            }
+            .para, .aboutFOCUS, .onFOCUS{
+                padding: 0 20px;
+                text-align: justify;
+            }
+            #enrollButton{
+                justify-content: center;
+                width: 21%;
+                padding: 10px 5px;
+	            border-radius: 10px;
+	            display: flex;
+	            margin: 3% auto;
+                border: white 2px solid;
+                font-family: "Arial";
+                font-size: 150%;
+                font-weight: bolder;
+                font-style: italic;
+                color: white;
+                background-color: #002848;
+                cursor: pointer;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Drop shadow */
+                transition: box-shadow 0.3s, transform 0.3s; /* Smooth transition for shadow and scaling */
+            }
+            #enrollButton:hover{
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Darker and larger shadow on hover */
+                transform: translateY(-2px); /* Slightly lift the button on hover */
+                text-decoration: underline;
+            }
+            .container-footer{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+                margin-top: 13%;
+                background-color: white;
+                padding: 15px 70px 0px 70px;
+            }
+            .contactLoc{
+                text-align: center;
+            }
+            #logoTeam{
+                width: 150px;
+                height: auto;
+            }
+            #fb, #ig, #call, #mail{
+                width: 40px;
+                height: auto;
+                margin-top: 3%;
+            }
+            #fb:hover, #ig:hover, #call:hover, #mail:hover{
+                transform: scale(1.03);
+                box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+            }
+            #fbLink, #emailLink, #phNum{
+                margin-bottom: 50px;
+            }
+            .copyright{
+                text-align: center;
+                font-size: 15px;
+                color: #002848;
+                background-color: white;
+                display: grid;
+                margin: 0 auto;
+                padding: 10px;
+            }
+        </style>
+        <style name="responsive">
+            .col-1{width: 8.33%;}
+            .col-2{width: 16.66%;}
+            .col-3{width: 25%;}
+            .col-4{width: 33.33%;}
+            .col-5{width: 41.66%;}
+            .col-6{width: 50%;}
+            .col-7{width: 58.33%;}
+            .col-8{width: 66.66%;}
+            .col-9{width: 75%;}
+            .col-10{width: 83.33%}
+            .col-11{width: 91.66%;}
+            .col-12{width: 100%;}
+            [class*="col-"]{
+                float: left;
+                padding: 15px;
+            }
+
+            /*Extra small devices (phones, 600px and down)*/
+            @media only screen and (max-width:600px){
+                #photo{
+                    display: none;
+                }
+                #enrollButton{
+                    width: 70%;
+                }
+                body{
+                    overflow-x: hidden;
+                }
+            }
+            /*Small devices (portrait tablets, large phones, 600px and up*/
+            @media only screen and (min-width:600px){
+                #photo{
+                    display: none;
+                }
+                #enrollButton{
+                    width: 50%;
+            }
+            /*Medium devices (landscape tablets, 768px and up*/
+            @media only screen and (min-width:768px){
+                #photo{
+                    display: none;
+                }
+                #enrollButton{
+                    width: 40%;
+                }
+            }
+            }
+            /*Large devices (laptops/desktop, 992px and up*/
+            @media only screen and (min-width:992px){
+                #photo{
+                    display: none;
+                }
+                #enrollButton{
+                    width: 30%;
+                }
+            }
+            /*Extra large devices (large laptops and desktops, 1200px and up*/
+            @media only screen and (min-width:1200px){
+                #photo{
+                    display: none;
+                }
+                #enrollButton{
+                    width: 25%;
+                }
+            }
+        </style>
+        <title>ABOUT | FOCUS+</title>
+    </head>
+    <body>
+        <div class="header">    
+            <img src="Focus+clear.png" class="logo" name="logo" onclick="proceedToHomePage()">
+            <a href="home.html" class="home">HOME</a>
+            <a href="about.html" class="about">ABOUT</a>
+            <a href="offers.html" class="offers">TRAINING OFFERS</a>
+            <a href="faqs.html" class="faqs">FAQs</a>
+            <!--<a href="feedback.html" class="feedback">FEEDBACK</a>-->
+            <a href="contact.html" class="contact">CONTACT</a>
+            <a href="devProf.html" class="devOps">DEVELOPERS</a>
+            <button class="signIn" id="signIn" onclick="proceedToLogIn()">SIGN IN</button>
+            <!--<div class="searchBox">
+            <input type="text" id="search" name="search" placeholder="Search...">
+            <img src="https://img.icons8.com/?size=100&id=XU3XKgdpT0qG&format=png&color=000000" id="searchButton" name="searchButton" onclick="proceedToSearch()">
+            </div>
+            <img src="https://img.icons8.com/?size=100&id=eMfeVHKyTnkc&format=png&color=000000" id="notifButton" name="notifButton" onclick="proceedToNotification()">
+            <img src="https://img.icons8.com/?size=100&id=gFDEU6xka9fu&format=png&color=000000" id="chat" name="chat" onclick="proceedToChat()">
+            <button id="accountButton" name="accountButton" onclick="proceedToAccount()">M</button>
+            <h6 id="account" onclick="proceedToAccount()">v</h6>-->
+        </div>
+        <div class="label">
+            <h1 class="title">ELEVATING FROM SIMPLE</h1>
+            <img src="amfi.jpg" id="photo" name="photo">
+        </div>
+        <div class="content">
+            <h2 class="aboutFOCUS">ABOUT</h2>
+            <p class="para">FOCUS+ is an online platform that offers training to help
+                Filipino workers improve their technical skills and education. Using
+                modern technology, FOCUS+ makes it easy and convenient for learners to
+                access technical and vocational training whenever and wherever it is desired.</p>
+            <h2 class="onFOCUS">WHAT'S ON FOCUS+?</h2>
+            <p class="para">FOCUS+ offers efficient and affordable training programs that provide
+            easy access to improve learner's skills and advance one's capabilities. These program
+            aims to bridge skills gap within the society through a click.</p>
+            <button class="button" id="enrollButton" name="enrollButton" onclick="proceedToLogIn()">Enroll Now!</button>
+        </div>
+        <div class="footer">
+            <div class="container-footer">
+                    <div class="logoPlace">
+                    <img src="FM-clear.png" alt="Team Logo" id="logoTeam">
+                    </div>
+                    <div class="contactLoc">
+                    <h6 class="address">FOCUS+ by MountIO<br>New Visayas, Panabo City, <br>
+                    Davao del Norte, Philippines 8105</h6>
+                    </div>
+                    <div class="icons">
+                        <img src="https://img.icons8.com/?size=100&id=8818&format=png&color=000000" alt="fb logo" id="fb" title="FOCUS+arget">
+                        <!--<img src="https://img.icons8.com/?size=100&id=32309&format=png&color=000000" alt="ig logo" id="ig" title="FOCUS+arget">--->
+                        <img src="https://img.icons8.com/?size=100&id=jShwZ2RCyPSO&format=png&color=000000" alt="call" id="call" title="0966-352-5363">
+                        <img src="https://img.icons8.com/?size=100&id=YRRhCXfA0Vd0&format=png&color=000000" alt="mail" id="mail" title="mount.io.focus@gmail.com">
+
+                        <!--<img src="https://img.icons8.com/?size=100&id=8818&format=png&color=000000" alt="fb logo" id="fb" title="FOCUS+arget">
+                        <label id="fbLink" class="fbLink"></label>
+                        <img src="https://img.icons8.com/?size=100&id=32309&format=png&color=000000" alt="ig logo" id="ig" title="FOCUS+arget">
+                        <label id="igLink" for="" class="igLink"></label>
+                        <img src="https://img.icons8.com/?size=100&id=jShwZ2RCyPSO&format=png&color=000000" alt="call" id="call" title="0966-352-5363">
+                        <label id="phNum" class="phNum"></label>
+                        <img src="https://img.icons8.com/?size=100&id=YRRhCXfA0Vd0&format=png&color=000000" alt="mail" id="mail" title="mount.io.focus@gmail.com">
+                        <label id="emailLink" class="emailLink">mount.io.focus@gmail.com</label>--->
+                    </div>
+                </div>
+                <label for="copyright" class="copyright" id="copyright">MountIO &copy; 2024. All rights reserved.</label>               
+        </div>
+        <script>
+            function proceedToHomePage(){window.location.href= 'home.html'}
+            function proceedToSearch() {window.location.href = 'searchResult.html';}
+            function proceedToNotification() {window.location.href = 'notif.html';}
+            function proceedToChat() {window.location.href = 'chat.html';}
+            function proceedToAccount() {window.location.href = 'account.html';}
+            function proceedToLogIn() {window.location.href = 'login.html';}
+        </script>
+    </body>
+</html>
